@@ -9,9 +9,11 @@ before do
           'Access-Control-Allow-Methods' => ['OPTIONS', 'GET', 'POST','PUT'],
           'Access-Control-Allow-Headers' => ['Content-Type', "x-requested-with", "origin"]
 end
-
-
 set :protection, false
+
+options '/*' do
+  response["Access-Control-Allow-Headers"] = "origin, x-requested-with, content-type"
+end
 
 put '/tasks/:task_id/evaluate' do
   solution_string = request.body.read;
