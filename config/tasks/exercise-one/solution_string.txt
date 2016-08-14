@@ -1,0 +1,30 @@
+def solution
+	solution_string
+end
+
+
+# Return last name
+def last_name(page)
+  return ""
+end
+
+# Return year of birth as DD/MM/YYYY
+def year_of_birth(page)
+  return 1965
+end
+
+# Return name of current city
+def current_city(page)
+  return "Bangalore"
+end
+
+
+# Return name of past cities
+def past_cities(page)
+  return ["Mumbai", ["New York"]]
+end
+
+# Return dates of address change as MM/YY, from oldest to newest
+def address_change_dates(page)
+  return []
+end
