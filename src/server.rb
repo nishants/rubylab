@@ -7,8 +7,9 @@ service = RubyLab::Service.new CONFIG_PATH
 before do
   headers 'Access-Control-Allow-Origin' => '*',
           'Access-Control-Allow-Methods' => ['OPTIONS', 'GET', 'POST','PUT'],
-          'Access-Control-Allow-Headers' => ['Content-Type', 'X-Requested-With']
+          'Access-Control-Allow-Headers' => ['Content-Type', "x-requested-with", "origin"]
 end
+
 
 set :protection, false
 
