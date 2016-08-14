@@ -15,7 +15,6 @@ set :protection, false
 
 put '/tasks/:task_id/evaluate' do
   solution_string = request.body.read;
-  content_type 'text/plain'
   service.eval_solution(params[:task_id], solution_string)
 end
 
