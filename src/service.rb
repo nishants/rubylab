@@ -1,9 +1,14 @@
 module RubyLab
   class Service
+
   	def initialize config_path
+			@tasks_path = "#{config_path}/tasks"
   	end
 
-	def eval_solution __validator_file, __solution_file
+	# __solution_string is avilable for scope of evalutaor.rb
+	def eval_solution task_id, __solution_string
+		__validator_file = "#{@tasks_path}/#{task_id}/evaluator.rb"
+
 		begin
 	 		__proc = Proc.new {}
 	 		result = eval(File.read(__validator_file), __proc.binding)
@@ -12,13 +17,7 @@ module RubyLab
 			return se.message.sub("(eval)", "Validator file")
 		end
 	end
-  
-	def solution_as_file solution_string
-		file = Tempfile.new('foo')
-		file.write(solution_string)
-		file.close
-		file.path
-	end
+
   end
 end
 

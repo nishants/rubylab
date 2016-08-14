@@ -33,10 +33,10 @@ def prepare
 end
 
 
-def execute solution_file
+def execute solution_string
 	begin
 		proc = Proc.new {}
-	 	eval(File.read(solution_file), proc.binding)
+	 	eval(solution_string, proc.binding)
 	 	return prepare
 	rescue Exception => se
 		return se.message.sub("(eval)", "Solutions file")
@@ -44,4 +44,4 @@ def execute solution_file
 end
 
 # __solution_file must be in process scope
-execute(__solution_file)
+execute(__solution_string)
