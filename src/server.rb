@@ -1,8 +1,11 @@
 require 'sinatra'
+require 'sinatra/cross_origin'
+
 require_relative 'service'
 
 CONFIG_PATH = "config"
 service = RubyLab::Service.new CONFIG_PATH
+set :allow_origin, :any
 
 put '/task/:task_id/evaluate' do
   solution_string = request.body.read;
