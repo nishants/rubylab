@@ -13,13 +13,13 @@ end
 
 set :protection, false
 
-put '/task/:task_id/evaluate' do
+put '/tasks/:task_id/evaluate' do
   solution_string = request.body.read;
   content_type 'text/plain'
   service.eval_solution(params[:task_id], solution_string)
 end
 
-get '/task/:task_id/worksheet' do
+get '/tasks/:task_id/worksheet' do
   content_type 'text/plain'
   service.worksheet_of(params[:task_id])
 end
