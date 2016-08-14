@@ -1,14 +1,9 @@
-def solution
-	solution_string
-end
-
-
-# Return last name
+# Return last name from page object
 def last_name(page)
   return ""
 end
 
-# Return year of birth as DD/MM/YYYY
+# Return year of birth as YYYY
 def year_of_birth(page)
   return 1965
 end
@@ -19,7 +14,7 @@ def current_city(page)
 end
 
 
-# Return name of past cities
+# Return name of past cities as array
 def past_cities(page)
   return ["Mumbai", ["New York"]]
 end
