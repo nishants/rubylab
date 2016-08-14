@@ -19,5 +19,6 @@ put '/task/:task_id/evaluate' do
 end
 
 get '/task/:task_id/worksheet' do
+  content_type 'text/plain'
   service.worksheet_of(params[:task_id])
 end
