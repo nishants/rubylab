@@ -11,6 +11,15 @@ set :allow_credentials, true
 set :max_age, "1728000"
 set :expose_headers, ['Content-Type']
 
+options "*" do
+  response.headers["Allow"] = "HEAD,GET,PUT,DELETE,OPTIONS"
+
+  # Needed for AngularJS
+  response.headers["Access-Control-Allow-Headers"] = "X-Requested-With, X-HTTP-Method-Override, Content-Type, Cache-Control, Accept"
+
+  halt HTTP_STATUS_OK
+end
+
 put '/task/:task_id/evaluate' do
   solution_string = request.body.read;
   service.eval_solution(params[:task_id], solution_string)
