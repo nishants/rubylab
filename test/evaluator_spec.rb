@@ -48,6 +48,23 @@ RSpec.describe RubyLab::Evaluator do
       expect(@evaluator.report).to eq(expected_report)
     end
 
+    it "should replace nil by 'nil' string" do
+      scenario_name   = "scenario-one"
+      actual_value    = nil
+      expected_value  = "cats"
+
+      expected_report = {:name => "my-test-report",:scenarios => [
+          {:name      => scenario_name,
+           :success   => false,
+           :actual    => "nil",
+           :expected  => expected_value
+          }
+      ]}
+
+      @evaluator.verify_scenario(scenario_name, actual_value, expected_value)
+      expect(@evaluator.report).to eq(expected_report)
+    end
+
   end
 
 end

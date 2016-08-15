@@ -7,11 +7,11 @@ module RubyLab
       @scenarios  = []
     end
 
-    def verify_scenario(name, result, expected)
+    def verify_scenario(name, actual, expected)
       @scenarios.push({
         :name     => name,
-        :success  => result == expected,
-        :actual   => result,
+        :success  => actual == expected,
+        :actual   => actual.nil? ? 'nil' : actual ,
         :expected => expected
       })
     end

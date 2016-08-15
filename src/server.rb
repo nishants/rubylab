@@ -1,11 +1,13 @@
 require 'sinatra'
+require 'json'
+
 require_relative 'service'
-require_relative 'tasks/evaluator'
 
 CONFIG_PATH = "config"
 service = RubyLab::Service.new CONFIG_PATH
-
+set :port, 5000
 before do
+  content_type :json
   headers 'Access-Control-Allow-Origin' => '*',
           'Access-Control-Allow-Methods' => ['OPTIONS', 'GET', 'POST','PUT'],
           'Access-Control-Allow-Headers' => ['Content-Type', "x-requested-with", "origin"]
@@ -18,7 +20,7 @@ end
 
 put '/tasks/:task_id/evaluate' do
   solution_string = request.body.read;
-  service.eval_solution(params[:task_id], solution_string)
+  service.eval_solution(params[:task_id], solution_string).to_json
 end
 
 get '/tasks/:task_id/worksheet' do

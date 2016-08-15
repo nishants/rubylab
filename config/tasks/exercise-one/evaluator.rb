@@ -1,5 +1,4 @@
 def prepare 
-	 report = []
 
 	page = {
 	    :name         => "Dam",
@@ -13,23 +12,13 @@ def prepare
 	    ]
 	}
 
-	def verify (value, expected, testName)
-	  error       = (value != expected)
-	  title       = (error ?  "Failed : " : "Okay   : ") + testName
-	  line_break  = ("\n"+ ("-" * 20) +"\n")
-	  result      = title + line_break
-	  error_message  = (error ? "Expected : #{expected} \nActual   : #{value}" : "")
-	  return  error ? (result  + error_message +"\n\n") : result +"\n\n"
-	end
-
-	report.push (verify(last_name(page)      , "Sam"     , "last_name(page)"))
-	report.push (verify(year_of_birth(page)  , 1984      , "year_of_birth(page)"))
-	report.push (verify(current_city(page)   , "Delhi"   , "current_city(page)"))
-
-	report.push (verify(past_cities(page)    , ["Mumbai", "Chennai", "Guwahati"]   , "past_cities(page)"))
-	report.push (verify(address_change_dates(page)    , ["02/2006", "03/2010", "07/2012"]   , "address_change_dates(page)"))
-
-	report
+	evaluator= RubyLab::Evaluator.new("exercise-one")
+	evaluator.verify_scenario("last_name(page)", 	last_name(page), 		"Sam")
+	evaluator.verify_scenario("past_cities(page)", past_cities(page), 	["Mumbai", "Chennai", "Guwahati"])
+	evaluator.verify_scenario("year_of_birth(page)", year_of_birth(page), 	1984)
+	evaluator.verify_scenario("current_city(page)", current_city(page), 	"Delhi")
+	evaluator.verify_scenario("address_change_dates(page)", address_change_dates(page), 	["02/2006", "03/2010", "07/2012"])
+	evaluator.report
 end
 
 
