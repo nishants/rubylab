@@ -1,4 +1,14 @@
-# Return last name from page object
+# Return first name
+def first_name(page)
+  return page[:name]
+end
+
+# Return full name
+def full_name(page)
+  return page[:full_name]
+end
+
+# Return last name
 def last_name(page)
   return ""
 end

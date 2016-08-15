@@ -18,7 +18,7 @@ module RubyLab
     end
 
     def error(exception)
-      @error = exception.message.split("for #")[0];
+      @error = exception.message.split("for #")[0]
       report
     end
 

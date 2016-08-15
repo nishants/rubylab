@@ -13,6 +13,9 @@ def prepare
 	}
 
 	evaluator= RubyLab::Evaluator.new("exercise-one")
+	evaluator.verify_scenario("first_name(page)"					, first_name(page)						, 	"Dam")
+	evaluator.verify_scenario("full_name(page)"					  , full_name(page)							, 	"Dam Sam")
+
 	evaluator.verify_scenario("last_name(page)"						, last_name(page)						, 	"Sam")
 	evaluator.verify_scenario("past_cities(page)"					, past_cities(page)					, 	["Mumbai", "Chennai", "Guwahati"])
 	evaluator.verify_scenario("year_of_birth(page)"				, year_of_birth(page)				, 	1984)
