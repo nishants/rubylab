@@ -13,10 +13,10 @@ def prepare
 	}
 
 	evaluator= RubyLab::Evaluator.new("exercise-one")
-	evaluator.verify_scenario("last_name(page)", 	last_name(page), 		"Sam")
-	evaluator.verify_scenario("past_cities(page)", past_cities(page), 	["Mumbai", "Chennai", "Guwahati"])
-	evaluator.verify_scenario("year_of_birth(page)", year_of_birth(page), 	1984)
-	evaluator.verify_scenario("current_city(page)", current_city(page), 	"Delhi")
+	evaluator.verify_scenario("last_name(page)"						, last_name(page)						, 	"Sam")
+	evaluator.verify_scenario("past_cities(page)"					, past_cities(page)					, 	["Mumbai", "Chennai", "Guwahati"])
+	evaluator.verify_scenario("year_of_birth(page)"				, year_of_birth(page)				, 	1984)
+	evaluator.verify_scenario("current_city(page)"				, current_city(page)				, 	"Delhi")
 	evaluator.verify_scenario("address_change_dates(page)", address_change_dates(page), 	["02/2006", "03/2010", "07/2012"])
 	evaluator.report
 end
@@ -28,7 +28,7 @@ def execute solution_string
 	 	eval(solution_string, proc.binding)
 	 	return prepare
 	rescue Exception => se
-		return se.message.sub("(eval)", "Solutions file")
+		return RubyLab::Evaluator.new("exercise-one").error(se)
 	end
 end
 

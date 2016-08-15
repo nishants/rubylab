@@ -13,8 +13,9 @@ module RubyLab
 		begin
 	 		__proc = Proc.new {}
 	 		result = eval(File.read(__validator_file), __proc.binding)
+			result[:error] = result[:error].nil? ? nil : result[:error].sub(__FILE__, "")
 	 		return result
-		rescue SyntaxError => se
+		rescue Exception => se
 			return se.message.sub("(eval)", "Validator file")
 		end
 	end

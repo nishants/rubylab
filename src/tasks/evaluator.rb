@@ -5,6 +5,7 @@ module RubyLab
     def initialize name
       @name       = name
       @scenarios  = []
+      @error      = nil
     end
 
     def verify_scenario(name, actual, expected)
@@ -16,8 +17,13 @@ module RubyLab
       })
     end
 
+    def error(exception)
+      @error = exception.message
+      report
+    end
+
     def report
-      {:name => @name, :scenarios => @scenarios}
+      {:name => @name, :scenarios => @scenarios, :error => @error}
     end
   end
 end
