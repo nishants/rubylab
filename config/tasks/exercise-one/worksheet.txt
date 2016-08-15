@@ -1,35 +1,35 @@
 # Return first name
 def first_name(page)
-  return page[:name]
+  page[:name]
 end
 
 # Return full name
 def full_name(page)
-  return page[:full_name]
+  nil
 end
 
 # Return last name
 def last_name(page)
-  return ""
+  ""
 end
 
 # Return year of birth as YYYY
 def year_of_birth(page)
-  return 1965
+  1965
 end
 
 # Return name of current city
 def current_city(page)
-  return "Bangalore"
+  "Bangalore"
 end
 
 
 # Return name of past cities as array
 def past_cities(page)
-  return ["Mumbai", ["New York"]]
+  ["Mumbai", ["New York"]]
 end
 
 # Return dates of address change as MM/YY, from oldest to newest
 def address_change_dates(page)
-  return []
+  []
 end
