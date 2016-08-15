@@ -18,7 +18,7 @@ module RubyLab
     end
 
     def error(exception)
-      @error = exception.message
+      @error = exception.message.incude?("for #") ? exception.message.split("for #")[1] : exception.message;
       report
     end
 
