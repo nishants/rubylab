@@ -1,5 +1,6 @@
 require 'sinatra'
 require_relative 'service'
+require_relative 'tasks/evaluator'
 
 CONFIG_PATH = "config"
 service = RubyLab::Service.new CONFIG_PATH
