@@ -5,7 +5,6 @@ require_relative 'service'
 
 CONFIG_PATH = "config"
 service = RubyLab::Service.new CONFIG_PATH
-set :port, 5000
 before do
   content_type :json
   headers 'Access-Control-Allow-Origin' => '*',
