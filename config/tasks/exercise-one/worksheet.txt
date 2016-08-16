@@ -10,26 +10,26 @@ end
 
 # Return last name
 def last_name(page)
-  ""
+  nil
 end
 
 # Return year of birth as YYYY
 def year_of_birth(page)
-  1965
+  nil
 end
 
 # Return name of current city
 def current_city(page)
-  "Bangalore"
+  nil
 end
 
 
 # Return name of past cities as array
 def past_cities(page)
-  ["Mumbai", ["New York"]]
+  nil
 end
 
 # Return dates of address change as MM/YY, from oldest to newest
 def address_change_dates(page)
-  []
+  nil
 end
