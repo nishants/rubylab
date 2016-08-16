@@ -26,3 +26,8 @@ get '/tasks/:task_id/worksheet' do
   content_type 'text/plain'
   service.worksheet_of(params[:task_id])
 end
+
+put '/evaluate' do
+  expression = request.body.read;
+  service.evaluate(expression).to_json
+end

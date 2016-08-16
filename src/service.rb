@@ -24,5 +24,14 @@ module RubyLab
 			File.read("#{@tasks_path}/#{task_id}/worksheet.txt")
 		end
 
+    def evaluate(expression)
+      begin
+        result = eval(expression)
+        return result
+      rescue Exception => se
+        return se.message
+      end
+    end
+
 	end
 end
