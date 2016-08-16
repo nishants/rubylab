@@ -1,4 +1,4 @@
-def prepare 
+def prepare
 
 	page = {
 	    :name         => "Dam",
@@ -17,9 +17,9 @@ def prepare
 	evaluator.verify_scenario("full_name(page)"					  , full_name(page)							, 	"Dam Sam")
 
 	evaluator.verify_scenario("last_name(page)"						, last_name(page)						, 	"Sam")
-	evaluator.verify_scenario("past_cities(page)"					, past_cities(page)					, 	["Mumbai", "Chennai", "Guwahati"])
-	evaluator.verify_scenario("year_of_birth(page)"				, year_of_birth(page)				, 	1984)
-	evaluator.verify_scenario("current_city(page)"				, current_city(page)				, 	"Delhi")
+  evaluator.verify_scenario("year_of_birth(page)"				, year_of_birth(page)				, 	1984)
+  evaluator.verify_scenario("current_city(page)"				, current_city(page)				, 	"Delhi")
+  evaluator.verify_scenario("past_cities(page)"					, past_cities(page)					, 	["Mumbai", "Chennai", "Guwahati"])
 	evaluator.verify_scenario("address_change_dates(page)", address_change_dates(page), 	["02/2006", "03/2010", "07/2012"])
 	evaluator.report
 end
