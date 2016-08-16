@@ -29,7 +29,7 @@ module RubyLab
         result = eval(expression)
         return result
       rescue Exception => se
-        return se.message
+        return se.message.split("for #")[0]
       end
     end
 
