@@ -1,12 +1,12 @@
-require './src/tasks/evaluator'
+require './src/tasks/report'
 require 'rspec'
 
-RSpec.describe RubyLab::Evaluator do
+RSpec.describe RubyLab::Report do
 
   describe "Should generate report" do
 
     before :each do
-      @evaluator= RubyLab::Evaluator.new("my-test-report")
+      @evaluator= RubyLab::Report.new("my-test-report")
     end
 
     it "should convert relative path to failed contract name" do

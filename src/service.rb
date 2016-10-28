@@ -1,4 +1,4 @@
-require_relative './tasks/evaluator'
+require_relative './tasks/report'
 
 module RubyLab
   class Service

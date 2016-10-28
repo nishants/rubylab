@@ -12,7 +12,7 @@ def prepare
 	    ]
 	}
 
-	evaluator= RubyLab::Evaluator.new("exercise-one")
+	evaluator= RubyLab::Report.new("exercise-one")
 	evaluator.verify_scenario("first_name(page)"					, first_name(page)						, 	"Dam")
 	evaluator.verify_scenario("full_name(page)"					  , full_name(page)							, 	"Dam Sam")
 
@@ -31,7 +31,7 @@ def execute solution_string
 	 	eval(solution_string, proc.binding)
 	 	return prepare
 	rescue Exception => se
-		return RubyLab::Evaluator.new("exercise-one").error(se)
+		return RubyLab::Report.new("exercise-one").error(se)
 	end
 end
 

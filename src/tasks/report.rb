@@ -1,5 +1,5 @@
 module RubyLab
-  class Evaluator
+  class Report
 
     attr_accessor :name, :scenarios
     def initialize name
