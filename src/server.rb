@@ -22,7 +22,7 @@ put '/tasks/:task_id/evaluate' do
   service.eval_solution(params[:task_id], solution_string).to_json
 end
 
-get '/tasks/:task_id/worksheet' do
+get '/tasks/:task_id' do
   service.worksheet_of(params[:task_id]).to_json
 end
 
