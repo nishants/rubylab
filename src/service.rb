@@ -21,7 +21,8 @@ module RubyLab
 	end
 
 		def worksheet_of(task_id)
-			{:worksheet => File.read("#{@tasks_path}/#{task_id}/worksheet.txt")}
+			{:worksheet => File.read("#{@tasks_path}/#{task_id}/worksheet.txt"),
+       :replScope => File.read("#{@tasks_path}/#{task_id}/repl-scope.rb")}
 		end
 
     def evaluate(expression)
