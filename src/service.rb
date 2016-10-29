@@ -21,15 +21,15 @@ module RubyLab
 	end
 
 		def worksheet_of(task_id)
-			File.read("#{@tasks_path}/#{task_id}/worksheet.txt")
+			{:worksheet => File.read("#{@tasks_path}/#{task_id}/worksheet.txt")}
 		end
 
     def evaluate(expression)
       begin
         result = eval(expression)
-        return result
+        return {"result" => result}
       rescue Exception => se
-        return se.message.split("for #")[0]
+        return {"error" => se.message.split("for #")[0]}
       end
     end
 

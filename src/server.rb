@@ -23,8 +23,7 @@ put '/tasks/:task_id/evaluate' do
 end
 
 get '/tasks/:task_id/worksheet' do
-  content_type 'text/plain'
-  service.worksheet_of(params[:task_id])
+  service.worksheet_of(params[:task_id]).to_json
 end
 
 put '/evaluate' do
