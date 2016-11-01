@@ -10,7 +10,7 @@ RSpec.describe RubyLab::Report do
     end
 
     it "should convert relative path to failed contract name" do
-      expected = {:name => "my-test-report",:scenarios => []}
+      expected = {:name => "my-test-report",:scenarios => [], :error=>nil}
       expect(@evaluator.report).to eq(expected)
     end
 
@@ -25,7 +25,7 @@ RSpec.describe RubyLab::Report do
            :actual    => actual_value,
            :expected  => expected_value
           }
-      ]}
+      ], :error=>nil}
 
       @evaluator.verify_scenario(scenario_name, actual_value, expected_value)
       expect(@evaluator.report).to eq(expected_report)
@@ -42,7 +42,7 @@ RSpec.describe RubyLab::Report do
            :actual    => actual_value,
            :expected  => expected_value
           }
-      ]}
+      ], :error=>nil}
 
       @evaluator.verify_scenario(scenario_name, actual_value, expected_value)
       expect(@evaluator.report).to eq(expected_report)
@@ -59,7 +59,7 @@ RSpec.describe RubyLab::Report do
            :actual    => "nil",
            :expected  => expected_value
           }
-      ]}
+      ], :error=>nil}
 
       @evaluator.verify_scenario(scenario_name, actual_value, expected_value)
       expect(@evaluator.report).to eq(expected_report)
