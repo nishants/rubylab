@@ -27,7 +27,7 @@ RSpec.describe RubyLab::Report do
           }
       ], :error=>nil}
 
-      @evaluator.verify_scenario(scenario_name, actual_value, expected_value)
+      @evaluator.expect(scenario_name, actual_value, expected_value)
       expect(@evaluator.report).to eq(expected_report)
     end
 
@@ -44,7 +44,7 @@ RSpec.describe RubyLab::Report do
           }
       ], :error=>nil}
 
-      @evaluator.verify_scenario(scenario_name, actual_value, expected_value)
+      @evaluator.expect(scenario_name, actual_value, expected_value)
       expect(@evaluator.report).to eq(expected_report)
     end
 
@@ -61,7 +61,7 @@ RSpec.describe RubyLab::Report do
           }
       ], :error=>nil}
 
-      @evaluator.verify_scenario(scenario_name, actual_value, expected_value)
+      @evaluator.expect(scenario_name, actual_value, expected_value)
       expect(@evaluator.report).to eq(expected_report)
     end
 

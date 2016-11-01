@@ -6,14 +6,14 @@ module RubyLab
     def initialize(task_id, task_validator_file)
       @task_validator_file = task_validator_file
       @task_id = task_id
-      @report = []
+      @report = RubyLab::Report.new(task_id)
     end
 
-    # def expect actual
-    #   RubyLab::Assertion.new(actual, @report)
-    # end
+    def report
+      @report
+    end
 
-    def __solution_string
+    def submission
       @solution_string
     end
 
@@ -29,7 +29,7 @@ module RubyLab
         result[:error] = result[:error].nil? ? nil : result[:error].sub(__FILE__, "")
         return result
       rescue Exception => se
-        return se.message.sub("(eval)", "Validator file")
+        return se.message.gsub(__FILE__, "")
       end
     end
 

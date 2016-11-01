@@ -8,7 +8,7 @@ module RubyLab
       @error      = nil
     end
 
-    def verify_scenario(name, actual, expected)
+    def expect(name, actual, expected)
       @scenarios.push({
         :name     => name,
         :success  => actual == expected,

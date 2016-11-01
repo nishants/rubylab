@@ -6,7 +6,7 @@ require "./test/support/client"
 
 RSpec.describe RubyLab::Report do
 
-  describe "Should generate report" do
+  describe "Api Test" do
 
     before :each do
       @client = RubyLab::Client.new("http://localhost:4567")
@@ -19,27 +19,27 @@ RSpec.describe RubyLab::Report do
       expect(actual).to eq(expected)
     end
 
-    it "should generate reports for tasks" do
+    it "should return reports if all tests passed" do
       submission  = @helper.submission_for("exercise-one")
       expected    = @helper.expected_for("exercise-one")
       actual      = JSON.parse(@client.put("/tasks/exercise-one/evaluate", submission, {'Content-Type' => "application/json"}))
       expect(actual).to eq(expected)
     end
 
-    it "should generate reports for tasks" do
+    it "should return reports if some tests failed" do
       submission  = @helper.failing_submission_for("exercise-one")
       expected    = @helper.expected_failure_for("exercise-one")
 
       actual      = JSON.parse(@client.put("/tasks/exercise-one/evaluate", submission, {'Content-Type' => "application/json"}))
       expect(actual).to eq(expected)
     end
-    #
-    it "should generate error reports" do
+
+    it "should return reports if submission contains error" do
       submission  = @helper.error_submission_for("exercise-one")
       expected    = @helper.expected_error_for("exercise-one")
 
       actual      = JSON.parse(@client.put("/tasks/exercise-one/evaluate", submission, {'Content-Type' => "application/json"}))
-      expect(actual).to eq(expected)
+      expect(actual["error"]).to include(expected["error"])
     end
 
   end

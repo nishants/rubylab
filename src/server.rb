@@ -18,7 +18,7 @@ options '/*' do
 end
 
 put '/tasks/:task_id/evaluate' do
-  solution_string = request.body.read;
+  solution_string = request.body.read
   service.eval_solution(params[:task_id], solution_string).to_json
 end
 

@@ -1,4 +1,4 @@
-def prepare
+def prepare(evaluator)
 
 	page = {
 	    :name         => "Dam",
@@ -12,28 +12,22 @@ def prepare
 	    ]
 	}
 
-	evaluator= RubyLab::Report.new("exercise-one")
-	evaluator.verify_scenario("first_name(page)"					, first_name(page)						, 	"Dam")
-	evaluator.verify_scenario("full_name(page)"					  , full_name(page)							, 	"Dam Sam")
+	evaluator.expect("first_name(page)"					, first_name(page)						, 	"Dam")
+	evaluator.expect("full_name(page)"					  , full_name(page)							, 	"Dam Sam")
 
-	evaluator.verify_scenario("last_name(page)"						, last_name(page)						, 	"Sam")
-  evaluator.verify_scenario("year_of_birth(page)"				, year_of_birth(page)				, 	1984)
-  evaluator.verify_scenario("current_city(page)"				, current_city(page)				, 	"Delhi")
-  evaluator.verify_scenario("past_cities(page)"					, past_cities(page)					, 	["Mumbai", "Chennai", "Guwahati"])
-	evaluator.verify_scenario("address_change_dates(page)", address_change_dates(page), 	["02/2006", "03/2010", "07/2012"])
+	evaluator.expect("last_name(page)"						, last_name(page)						, 	"Sam")
+  evaluator.expect("year_of_birth(page)"				, year_of_birth(page)				, 	1984)
+  evaluator.expect("current_city(page)"				, current_city(page)				, 	"Delhi")
+  evaluator.expect("past_cities(page)"					, past_cities(page)					, 	["Mumbai", "Chennai", "Guwahati"])
+	evaluator.expect("address_change_dates(page)", address_change_dates(page), 	["02/2006", "03/2010", "07/2012"])
 	evaluator.report
 end
 
 
-def execute solution_string
-	begin
-		proc = Proc.new {}
-	 	eval(solution_string, proc.binding)
-	 	return prepare
-	rescue Exception => se
-		return RubyLab::Report.new("exercise-one").error(se)
-	end
+begin
+  proc = Proc.new {}
+  eval(submission, proc.binding)
+  return prepare(report)
+rescue Exception => se
+  return report.error(se)
 end
-
-# __solution_file must be in process scope
-execute(__solution_string)
