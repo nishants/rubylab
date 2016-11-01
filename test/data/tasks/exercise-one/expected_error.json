@@ -1,1 +1,1 @@
-{"name":"exercise-one","scenarios":[],"error":":53: syntax error, unexpected tIDENTIFIER, expecting ')'\n  page[:full_name].sub(page[:name], \"\")\n      ^\n/Users/dawn/Documents/projects/rubylab/src/service.rb:54: syntax error, unexpected keyword_end, expecting end-of-input"}
+{"name":"exercise-one","scenarios":[],"error":":65: syntax error, unexpected tIDENTIFIER, expecting ')'\n  page[:full_name].sub(page[:name], \"\")\n      ^\n/Users/dawn/Documents/projects/rubylab/src/task_runner.rb:66: syntax error, unexpected keyword_end, expecting end-of-input"}

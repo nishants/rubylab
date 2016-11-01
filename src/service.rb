@@ -1,5 +1,5 @@
 require_relative './tasks/report'
-require_relative './runner'
+require_relative './task_runner'
 
 module RubyLab
   class Service
@@ -14,6 +14,7 @@ module RubyLab
 		begin
 	 		__proc = Proc.new {}
 	 		result = eval(File.read(__validator_file), __proc.binding)
+      result = RubyLab::TaskRunner.new(task_id, __validator_file).evaluate_solution(__solution_string)
 			result[:error] = result[:error].nil? ? nil : result[:error].sub(__FILE__, "")
 	 		return result
 		rescue Exception => se
