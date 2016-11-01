@@ -1,5 +1,5 @@
-require 'http' # URI is required by Net::HTTP by default
-require 'json' # URI is required by Net::HTTP by default
+require 'http'
+require 'json'
 
 module RubyLab
   class Client
