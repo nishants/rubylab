@@ -9,12 +9,13 @@ RSpec.describe RubyLab::Report do
   describe "Should generate report" do
 
     before :each do
-      @evaluator= RubyLab::Report.new("my-test-report")
+      @client = RubyLab::Client.new("http://localhost:4567")
     end
 
     it "should convert relative path to failed contract name" do
-      expected = {:name => "my-test-report",:scenarios => [], :error => nil}
-      expect(@evaluator.report).to eq(expected)
+      actual = JSON.parse(@client.put("/evaluate", "'1,2,3'.split(',')"))
+      expected = {"result" => ["1","2","3"]}
+      expect(actual).to eq(expected)
     end
 
   end
