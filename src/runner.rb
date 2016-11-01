@@ -1,10 +1,10 @@
 require_relative 'assertion'
 
-module LookLike
+module RubyLab
   class Runner
 
     def self.run(script)
-      LookLike::Runner.new(script).execute
+      RubyLab::Runner.new(script).execute
     end
 
     def initialize(script)
@@ -13,7 +13,7 @@ module LookLike
     end
 
     def expect actual
-      LookLike::Assertion.new(actual, @report)
+      RubyLab::Assertion.new(actual, @report)
     end
 
     def look_like expected
@@ -21,9 +21,12 @@ module LookLike
     end
 
     def execute
+      __validator_file = @script
       begin
         __proc = Proc.new {}
-        eval(@script, __proc.binding)
+        result = eval(File.read(__validator_file), __proc.binding)
+        result[:error] = result[:error].nil? ? nil : result[:error].sub(__FILE__, "")
+        return result
       rescue Exception => se
         return [se.message]
       end
