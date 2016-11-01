@@ -19,5 +19,13 @@ module RubyLab
       JSON.parse(File.read("./test/data/tasks/#{task_id}/expected_failure.json"))
     end
 
+    def error_submission_for(task_id)
+      File.read("./test/data/tasks/#{task_id}/error_submission.rb")
+    end
+
+    def expected_error_for(task_id)
+      JSON.parse(File.read("./test/data/tasks/#{task_id}/expected_error.json"))
+    end
+
   end
 end

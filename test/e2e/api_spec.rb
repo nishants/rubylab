@@ -34,6 +34,14 @@ RSpec.describe RubyLab::Report do
       expect(actual).to eq(expected)
     end
 
+    it "should generate error reports" do
+      submission  = @helper.error_submission_for("exercise-one")
+      expected    = @helper.expected_error_for("exercise-one")
+
+      actual      = JSON.parse(@client.put("/tasks/exercise-one/evaluate", submission, {'Content-Type' => "application/json"}))
+      expect(actual).to eq(expected)
+    end
+
   end
 
 end
