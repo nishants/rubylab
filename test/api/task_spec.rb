@@ -1,6 +1,9 @@
 require './src/tasks/report'
 require 'rspec'
 
+require "./test/support/support"
+require "./test/support/client"
+
 RSpec.describe RubyLab::Report do
 
   describe "Should generate report" do
