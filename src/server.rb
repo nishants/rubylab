@@ -30,3 +30,10 @@ put '/evaluate' do
   expression = request.body.read;
   service.evaluate(expression).to_json
 end
+
+put '/validate' do
+  submission = JSON.parse(request.body.read);
+  worksheet  = submission["worksheet"]
+  validator  = submission["validator"]
+  service.validate(worksheet, validator).to_json
+end

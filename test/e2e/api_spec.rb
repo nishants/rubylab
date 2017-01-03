@@ -13,9 +13,11 @@ RSpec.describe RubyLab::Report do
       @helper = RubyLab::TestSupport.new
     end
 
-    it "should evaluate a script" do
-      actual = JSON.parse(@client.put("/evaluate", "'1,2,3'.split(',')"))
-      expected = {"result" => ["1","2","3"]}
+    it "should validate a workscript, given the validator" do
+      submission = {"worksheet" => "car = 'Junajo'", "validator" => "expect(car).to equal('Junajo')"}
+      response  = @client.put("/validate", submission.to_json, {'Content-Type' => "application/json"})
+      actual = JSON.parse(response)
+      expected = []
       expect(actual).to eq(expected)
     end
 

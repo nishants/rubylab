@@ -1,5 +1,8 @@
 require_relative './tasks/report'
 require_relative './task_runner'
+require_relative './vm/runner'
+require_relative './vm/assertion'
+
 
 module RubyLab
   class Service
@@ -27,5 +30,10 @@ module RubyLab
       end
     end
 
-	end
+    def validate(worksheet, validator)
+      script = worksheet + "\n" +validator
+      RubyLab::Runner.new(script).execute
+    end
+
+  end
 end
