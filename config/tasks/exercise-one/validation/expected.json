@@ -22,8 +22,8 @@
     {
       "name": "year_of_birth(page)",
       "success": true,
-      "actual": 1984,
-      "expected": 1984
+      "actual": 1985,
+      "expected": 1985
     },
     {
       "name": "current_city(page)",

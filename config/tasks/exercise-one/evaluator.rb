@@ -16,7 +16,7 @@ def prepare(evaluator)
 	evaluator.expect("full_name(page)"					  , full_name(page)							, 	"Dam Sam")
 
 	evaluator.expect("last_name(page)"						, last_name(page)						, 	"Sam")
-  evaluator.expect("year_of_birth(page)"				, year_of_birth(page)				, 	1984)
+  evaluator.expect("year_of_birth(page)"				, year_of_birth(page)				, 	1985)
   evaluator.expect("current_city(page)"				, current_city(page)				, 	"Delhi")
   evaluator.expect("past_cities(page)"					, past_cities(page)					, 	["Mumbai", "Chennai", "Guwahati"])
 	evaluator.expect("address_change_dates(page)", address_change_dates(page), 	["02/2006", "03/2010", "07/2012"])
