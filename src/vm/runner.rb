@@ -17,7 +17,7 @@ module RubyLab
     def __execute
       begin
         __proc = Proc.new {}
-        eval(@script, __proc.binding)
+        eval(@script.code, __proc.binding, @script.name, 1)
       rescue Exception => se
         return [se.message]
       end

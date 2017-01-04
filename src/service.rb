@@ -2,6 +2,7 @@ require_relative './tasks/report'
 require_relative './task_runner'
 require_relative './vm/runner'
 require_relative './vm/assertion'
+require_relative './vm/script'
 
 
 module RubyLab
@@ -32,7 +33,7 @@ module RubyLab
 
     def validate(worksheet, validator)
       script = worksheet + "\n" +validator
-      RubyLab::Runner.new(script).__execute
+      RubyLab::Runner.new(RubyLab::Script.new("worksheet.rb", script)).__execute
     end
 
   end
