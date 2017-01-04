@@ -10,12 +10,11 @@ module RubyLab
       RubyLab::Assertion.new(actual, @report)
     end
 
-
     def equal(expected)
       expected
     end
 
-    def execute
+    def __execute
       begin
         __proc = Proc.new {}
         eval(@script, __proc.binding)

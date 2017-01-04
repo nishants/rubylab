@@ -32,7 +32,7 @@ module RubyLab
 
     def validate(worksheet, validator)
       script = worksheet + "\n" +validator
-      RubyLab::Runner.new(script).execute
+      RubyLab::Runner.new(script).__execute
     end
 
   end
