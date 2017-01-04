@@ -1,0 +1,8 @@
+worksheet:
+- acar = 'Junajo'
+- car = acar
+
+validator:
+- expect(car).to equal('Junajo')
+
+expected: []

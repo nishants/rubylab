@@ -14,11 +14,14 @@ RSpec.describe RubyLab::Report do
     end
 
     it "should validate a workscript, given the validator" do
-      submission = {"worksheet" => "car = 'Junajo'", "validator" => "expect(car).to equal('Junajo')"}
-      response  = @client.put("/validate", submission.to_json, {'Content-Type' => "application/json"})
+      spec       = @helper.get_spec("simple_snippet")
+      request    = {  "worksheet" => spec["worksheet"],
+                      "validator" => spec["validator"]
+                   }.to_json
+      response   = @client.put("/validate", request)
+
       actual = JSON.parse(response)
-      expected = []
-      expect(actual).to eq(expected)
+      expect(actual).to eq(spec["expected"])
     end
 
     it "should return reports if all tests passed" do

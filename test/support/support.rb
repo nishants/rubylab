@@ -1,7 +1,16 @@
 require './src/server'
+require 'yaml'
 
 module RubyLab
   class TestSupport
+
+    def get_spec(name)
+      submission = YAML.load(File.read("./specs/#{name}.yml"))
+      {  "worksheet" => submission["worksheet"].join("\n"),
+         "validator" => submission["validator"].join("\n"),
+         "expected"  => submission["expected"]
+      }
+    end
 
     def submission_for(task_id)
       File.read("./test/data/submission.rb")
