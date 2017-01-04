@@ -3,6 +3,12 @@ worksheet:
 - car = acar
 
 validator:
+- it("comapres cars")
 - expect(car).to equal('Junajo')
 
-expected: []
+expect:
+  tests:
+  - name: comapres cars
+    success: true
+    expected: Junajo
+    actual: Junajo

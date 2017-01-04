@@ -7,11 +7,18 @@ module RubyLab
     end
 
     def expect actual
-      RubyLab::Assertion.new(actual, @report)
+      RubyLab::Assertion.new(actual, @report, @test_name)
     end
 
     def equal(expected)
       expected
+    end
+    def eq(expected)
+      expected
+    end
+
+    def it(name)
+      @test_name = name;
     end
 
     def __execute
@@ -21,8 +28,9 @@ module RubyLab
       rescue Exception => se
         return [se.message]
       end
-      @report
+      {:tests => @report}
     end
 
   end
 end
+"{\"tests\":[{\"name\":\"comapres cars\",\"success\":true,\"expected\":\"Junajo\",\"acutal\":\"Junajo\"}]}"

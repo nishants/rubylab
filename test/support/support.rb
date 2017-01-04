@@ -8,7 +8,7 @@ module RubyLab
       submission = YAML.load(File.read("./specs/#{name}.yml"))
       {  "worksheet" => submission["worksheet"].join("\n"),
          "validator" => submission["validator"].join("\n"),
-         "expected"  => submission["expected"]
+         "expect"  => submission["expect"]
       }
     end
 
