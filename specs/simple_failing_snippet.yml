@@ -3,12 +3,18 @@ worksheet:
 - car = acar
 
 validator:
-- it("comapres cars")
+- it("comapres not equal cars")
 - expect(car).to equal('Junajos')
+- it("comapres equal cars")
+- expect(car).to equal('Junajo')
 
 expect:
   tests:
-  - name: comapres cars
+  - name: comapres not equal cars
     success: false
     expected: Junajos
+    actual: Junajo
+  - name: comapres equal cars
+    success: true
+    expected: Junajo
     actual: Junajo
