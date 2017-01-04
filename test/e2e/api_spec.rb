@@ -20,7 +20,16 @@ RSpec.describe RubyLab::Report do
                    }.to_json
       response   = @client.put("/validate", request)
 
-      expect(response).to eq(spec["expect"].to_json)
+      expect(JSON.parse(response)).to eq(spec["expect"])
+    end
+    it "should report failing tests" do
+      spec       = @helper.get_spec("simple_failing_snippet")
+      request    = {  "worksheet" => spec["worksheet"],
+                      "validator" => spec["validator"]
+                   }.to_json
+      response   = @client.put("/validate", request)
+
+      expect(JSON.parse(response)).to eq(spec["expect"])
     end
 
     it "should return reports if all tests passed" do

@@ -1,0 +1,14 @@
+worksheet:
+- acar = 'Junajo'
+- car = acar
+
+validator:
+- it("comapres cars")
+- expect(car).to equal('Junajos')
+
+expect:
+  tests:
+  - name: comapres cars
+    success: false
+    expected: Junajos
+    actual: Junajo
