@@ -31,6 +31,22 @@ put '/evaluate' do
   service.evaluate(expression).to_json
 end
 
+#  Sample request
+# {
+#     "worksheet": [
+#     "acar = 'Junajo'",
+#     "car = acar"
+# ],
+#     "validator": [
+#     "it(\"comapres cars\")",
+#     "expect(car).to equal('Junajo')",
+#     "it(\"comapres cars again\")",
+#     "expect(car).to equal('Junajo')",
+#     "it(\"comapres cars onace more\")",
+#     "expect(car).to equal('Junajo')"
+#
+# ]
+# }
 put '/validate' do
   submission = JSON.parse(request.body.read);
   worksheet  = submission["worksheet"].join("\n")
