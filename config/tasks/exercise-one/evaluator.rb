@@ -1,4 +1,3 @@
-def prepare(evaluator)
 
 	page = {
 	    :name         => "Dam",

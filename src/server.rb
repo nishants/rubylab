@@ -33,7 +33,7 @@ end
 
 put '/validate' do
   submission = JSON.parse(request.body.read);
-  worksheet  = submission["worksheet"]
-  validator  = submission["validator"]
+  worksheet  = submission["worksheet"].join("\n")
+  validator  = submission["validator"].join("\n")
   service.validate(worksheet, validator).to_json
 end
